@@ -128,10 +128,10 @@ def coin_selection():
     """Prompts user to choose which coins to deposit and passes their selection in validate_coin_selection"""
     validated_user_selection = (False, None)
     while validated_user_selection[0] is False:
-        print("\n\tEnter -Q- for Quarter")
-        print("\tEnter -D- for Dime")
-        print("\tEnter -N- for Nickel")
-        print("\tEnter -P- for Penny")
+        print("\n\tEnter -1- for Quarter")
+        print("\tEnter -2- for Dime")
+        print("\tEnter -3- for Nickel")
+        print("\tEnter -4- for Penny")
         print("\tEnter -5- for when finished to deposit payment into machine")
         user_input = try_parse_int(input())
         validated_user_selection = validate_coin_selection(user_input)
@@ -152,8 +152,8 @@ def validate_coin_selection(selection):
     return switcher.get(selection, (False, None))
 
 
-def end_message(soda_name, change_amount):
+def end_message(soda, change_amount):
     """Closing message displaying name of soda purchased and amount of change returned"""
-    print(f'Enjoy your {soda_name}')
+    print(f'Enjoy your' ,soda.name)
     if change_amount >= 0:
         print(f'Dispensing ${change_amount}')
